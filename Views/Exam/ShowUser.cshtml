@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Show Panel</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+<nav>
+<ul class="nav nav-tabs">
+    <li role="presentation">
+    <a href="/users">Myprofile</a>
+    </li>
+     <li role="presentation">
+    <a href="/dashboard">Dashboard</a>
+    </li>
+    <li role="presentation">
+    <a href="/logout">Logout</a>
+    </li>
+    <li>
+    <a class="move_right_name" data-toggle="dropdown">@ViewBag.User_one.first_name @ViewBag.User_one.last_name</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+    <p>
+  		<h4>@ViewBag.Network_Info.first_name @ViewBag.Network_Info.last_name</h4>
+	  	<p>Description: @ViewBag.Network_Info.description</p>
+    </p>
+</div>

@@ -1,0 +1,23 @@
+.errors{
+    color: red;
+}
+.move_right_name{
+    margin-left: 600px;
+}
+.border{
+    border: 1px solid black;
+    width: 400px;
+    height: 80px;
+}
+.box_style{
+height: 140px;
+width: 200px;
+overflow: scroll;
+border:2px solid black;
+padding: 2%;
+margin-left: 40px;
+margin-right: -160px;
+}
+h3{
+    margin-top: 5px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Panel</title>
+  <link rel="stylesheet" href="~/css/site.css"/>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<script>
+ </script>
+<body>
+<nav>
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active">
+        <a href="/dashboard">Allusers</a>
+      </li>
+     <li role="presentation">
+        <a href="/users">MyProfile</a>
+      </li> 
+    <li role="presentation">
+    <a href="/logout">Logout</a>
+    </li>
+    <li>
+    <a class="move_right_name" data-toggle="dropdown"> Hi @ViewBag.User_one.first_name @ViewBag.User_one.last_name</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+    <h3>Here is your Profile Description</h3>
+    <div class="col-md-4">
+       <p class="border" style="color:red;"> @ViewBag.User_one.description</p>
+    <div>
+    <h3>Your Professional Network</h3>
+    <p>Displays users those added to your network</p>
+    <div class="box_style">
+        @{
+        foreach(var All in ViewBag.Other_Users){
+            <tr>
+                <li><a href="/show/@All.id">@All.first_name @All.last_name</a></li>
+            </tr>
+            }
+        }
+	</div>
+     <h3>Invitations:</h3>
+     <p>The Following people asked you to their network</p>
+     <table class='table'>
+        <thead>
+            <th>Name</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            @{
+                foreach(var others in ViewBag.User_Except_networks){
+                <tr>
+                <td><a href="/show/@others.id">@others.first_name</a></td> 
+                <td><a href="/join/@others.id" onclick="return confirm('Are you sure you want to accept Invitation?');">Accept Invitation</a> | 
+                <a href="/ignore/@others.id"  onclick="return confirm('Are you sure you want to Ignore this invitation?');">Ignore</a></td>
+                </tr>
+                }
+            }
+        </tbody>
+</div>

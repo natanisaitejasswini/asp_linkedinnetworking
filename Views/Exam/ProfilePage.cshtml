@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Show Panel</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+<nav>
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active">
+    <a href="/users">Myprofile</a>
+    </li>
+    <li role="presentation">
+    <a href="/dashboard">Dashboard</a>
+    </li>
+    <li role="presentation">
+    <a href="/logout">Logout</a>
+    </li>
+    <li>
+    <a class="move_right_name" data-toggle="dropdown">@ViewBag.User_one.first_name @ViewBag.User_one.last_name</a>
+</li>
+</ul>
+</nav>
+<div class="container">
+    <h3>Users you want to connect</h3>
+     <div class="col-md-4">
+    <table class='table'>
+        <thead>
+            <th>Name</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+             @{
+                foreach(var others in ViewBag.Ignored_Networks){
+                <tr>
+                <td><a href="/show/@others.network_id>@others.first_name">@others.last_name</a></td> 
+                <td><a href="/ignoreconnect/@others.network_id"  onclick="return confirm('Are you sure you want to connect?');">Connect</a></td>
+                </tr>
+                }
+             }
+        </tbody>
+    </div>
+</div>
